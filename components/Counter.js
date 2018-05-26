@@ -1,22 +1,29 @@
 var Counter = React.createClass({
-	getDefaultProps: function(){
-		return {
-			gameName: 'Default',
-			counterName: 'Score'
-		}
-	},
+
 
   	propTypes: {
 		gameName: React.PropTypes.string.isRequired,
 		counterName: React.PropTypes.string.isRequired
-		},
+	},
 
+
+    reset: function() {
+		this.props.gameName = 'Nowa nazwa';
+        return this.props.gameName;
+    },
 
 	getInitialState: function(){
 		return {
 			counter: 0,
 			message: 'my setState'
 		};
+	},
+
+	getDefaultProps: function(){
+		return {
+			gameName: 'Default',
+			counterName: 'Score'
+		}
 	},
 
 	increment: function(){
@@ -37,8 +44,12 @@ var Counter = React.createClass({
 		}
 	}, 
 
-componentWillReceiveProps(nextProps) {
+componentWillReceiveProps() {
 	console.log('props recieved');
+  },
+
+  shouldComponentUpdate(){
+	return true;
   },
 
 	render: function() {
@@ -51,8 +62,8 @@ componentWillReceiveProps(nextProps) {
 			}, 'Add'),
 			React.createElement('button', {
 				onClick: this.decrement
-			}, 'Subtract')
-
+			}, 'Subtract'),
+			React.createElement('button', {onClick: this.reset}, 'Send new props')
 		);
 	},
 
@@ -63,34 +74,5 @@ componentWillReceiveProps(nextProps) {
 	}
 });
 
-var UpdateCounter = React.createClass({
-	getDefaultProps: function(){
-		return {
-			gameName: 'kkittt',
-			counterName: 'asdf'
-		}
-	},
-
-	render: function(){
-		console.log('kki');
-		console.log(this.props.gameName);
-		return React.createElement('div', {}, 
-			React.createElement('button', {onClick: this.updateCounterProps}, 'update')
-			
-		)
-	},
-
-	updateCounterProps: function(){
-		
-	},
-
-	render: function(){
-		return React.createElement(Counter, {gameName: this.props.gameName, counterName: this.props.counterName},)
-	}
-
-});
-
 var element = React.createElement(Counter);
-var element1 = React.createElement(UpdateCounter);
 ReactDOM.render(element, document.getElementById('app'));
-ReactDOM.render(element1, document.getElementById('app-1'));
