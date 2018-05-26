@@ -1,38 +1,40 @@
+
 var Counter = React.createClass({
-  getDefaultProps: function() {
+  getDefaultProps: function(){
     return {
       gameName: 'Default',
       counterName: 'Score'
     }
   },
 
-  propTypes: {
+    propTypes: {
     gameName: React.PropTypes.string.isRequired,
     counterName: React.PropTypes.string.isRequired
   },
 
-  newProp: function() {
-    console.log('function newProp');
-    this.props.gameName = 'Nowa nazwa';
-    return this.props.gameName;
-  },
 
-  getInitialState: function() {
+    reset: function() {
+      this.setState({
+        gameName: 'nowa nazawa'
+      })
+    },
+
+  getInitialState: function(){
     return {
       counter: 0,
       message: 'my setState'
     };
   },
 
-  increment: function() {
+  increment: function(){
     this.setState({
-      counter: this.state.counter + 1
+      counter: this.state.counter +1
     });
   },
 
-  decrement: function() {
+  decrement: function(){
     this.setState({
-      counter: this.state.counter - 1
+      counter: this.state.counter -1
     });
   },
 
@@ -40,36 +42,38 @@ var Counter = React.createClass({
     return {
 
     }
+  }, 
+
+componentWillReceiveProps(nextProps) {
+  console.log('props recieved');
   },
 
-   componentWillReceiveProps(nextProps){
-    console.log('props recieved');
-  },
-
-  shouldComponentUpdate() {
-    return true;
+  shouldComponentUpdate(){
+  return true;
   },
 
   render: function() {
     return React.createElement('div', {},
       React.createElement('p', {}, this.props.gameName),
-      React.createElement('span', {},
-        this.props.counterName + ': ' + this.state.counter),
+      React.createElement('span', {}, this.props.counterName + ': ' + this.state.counter),
       React.createElement('span', {}, this.state.message),
-      React.createElement('button', {onClick: this.increment}, 'Add'),
-      React.createElement('button', {onClick: this.decrement}, 'Subtract'),
-      React.createElement('button', {onClick: this.newProp }, 'Set new prop')
+      React.createElement('button', {
+        onClick: this.increment
+      }, 'Add'),
+      React.createElement('button', {
+        onClick: this.decrement
+      }, 'Subtract'),
+      React.createElement('button', {onClick: this.reset}, 'Send new props')
     );
   },
 
-  componentDidMount: function() {
-    var $span = $('span').css(
-      'background-color', 'yellow');
+  componentDidMount: function(){
+    var $span = $('span').css('background-color', 'yellow');
     console.log($span);
     return $span
   }
 });
 
 var element = React.createElement(Counter);
-ReactDOM.render(element, document.getElementById(
-  'app'));
+ReactDOM.render(element, document.getElementById('app'));
+
