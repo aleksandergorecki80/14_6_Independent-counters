@@ -11,13 +11,21 @@ var Counter = React.createClass({
 		});
 	},
 
+	decrement: function(){
+		this.setState({
+			counter: this.state.counter -1
+		});
+	},
+
 	render: function() {
 		return React.createElement('div', {},
 			React.createElement('span', {}, 'Licznik: ' + this.state.counter),
 			React.createElement('button', {
-				value: 'Add',
 				onClick: this.increment
-			},)
+			}, 'Add'),
+			React.createElement('button', {
+				onClick: this.decrement
+			}, 'Subtract')
 		);
 	}
 });
