@@ -5,6 +5,12 @@ var Counter = React.createClass({
 		};
 	},
 
+	getDefaultProps: function(){
+		return {
+			counterName: 'Score'
+		}
+	},
+
 	increment: function(){
 		this.setState({
 			counter: this.state.counter +1
@@ -17,9 +23,15 @@ var Counter = React.createClass({
 		});
 	},
 
+	componentWillMount: function() {
+		return {
+
+		}
+	}, 
+
 	render: function() {
 		return React.createElement('div', {},
-			React.createElement('span', {}, 'Licznik: ' + this.state.counter),
+			React.createElement('span', {}, this.props.counterName + ': ' + this.state.counter),
 			React.createElement('button', {
 				onClick: this.increment
 			}, 'Add'),
@@ -27,7 +39,14 @@ var Counter = React.createClass({
 				onClick: this.decrement
 			}, 'Subtract')
 		);
-	}
+	},
+
+	componentDidMount: function(){
+		//var $span = $('span').html();
+		var $span = $('span').css('background-color', 'yellow');
+		console.log($span);
+		return $span
+	},
 });
 
 var element = React.createElement(Counter);
