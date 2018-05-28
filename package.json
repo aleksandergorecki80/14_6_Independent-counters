@@ -1,0 +1,27 @@
+{
+  "name": "14_7_We-use-JSX",
+  "version": "1.0.0",
+  "description": "https://aleksandergorecki80.github.io/14_7_We-use-JSX/",
+  "main": "script.js",
+  "dependencies": {
+    "babel-standalone": "^6.26.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksandergorecki80/14_7_We-use-JSX.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleksandergorecki80/14_7_We-use-JSX/issues"
+  },
+  "homepage": "https://github.com/aleksandergorecki80/14_7_We-use-JSX#readme"
+}
