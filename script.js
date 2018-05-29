@@ -1,32 +1,30 @@
 class App extends React.Component {
 
 
+	constructor(){
+		super();
+		this.state = {
+			headerName: "Score table"
+		};
+	}
 
-	onCangeName(newName){
-
+	onChangeName(newName){
+		this.setState({
+            headerName: newName
+        });
 	}
 
 	render(){
-
-		var counters = [
-			{
-			id: 1,
-			name:  "Counter one"},
-			{
-			id: 2,
-			name:  "Counter two"},
-			{
-			id: 3,
-			name:  "Counter three"},
-		];
-
-console.log(counters[0].name);
 		return (
 			<div className="container">
-				<CounterOne counterName = {counters[0].name} counterId={counters[0].id}/>
-				<CounterOne counterName = {counters[1].name} counterId={counters[1].id}/>
-				<CounterOne counterName = {counters[2].name} counterId={counters[2].id}/>
-
+				<h1>{this.state.headerName}</h1>
+				<Header 
+					headerName = {this.state.headerName}
+					changeName={this.onChangeName.bind(this)}
+				/>
+				<CounterOne counterName = {"Counter one"}/>
+				<CounterOne counterName = {"Counter two"}/>
+				<CounterOne counterName = {"Counter three"}/>
 			</div>
 		);
 	}

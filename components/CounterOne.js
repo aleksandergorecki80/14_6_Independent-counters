@@ -60,10 +60,9 @@ class CounterOne extends React.Component {
    <div >
       <p>
         <button className = "btn" onClick = {this.decreaseState.bind(this)}>-</button>
-        <span>{this.props.counterId} . {this.props.counterName}</span>
+        <span>{this.props.counterName}</span>
         <span className="badge">{this.state.counterState}</span>
         <button className = "btn" onClick = {this.increaseState.bind(this)}>+</button>
-        <input type="text" />
       </p>
    </div>
   );
@@ -72,8 +71,7 @@ class CounterOne extends React.Component {
 
 
 CounterOne.propTypes = {
-  counterName: React.PropTypes.string,
-  counterId: React.PropTypes.number
+  counterName: React.PropTypes.string
 };
 
 
