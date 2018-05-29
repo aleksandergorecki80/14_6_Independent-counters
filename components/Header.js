@@ -22,7 +22,7 @@ class Header extends React.Component {
       <div>
         <input className="form-control" type="text"  value={this.state.name} onChange = {this.onHandleChange.bind(this)}/>
         <button className="btn" onClick={this.onChangeName.bind(this)}>Chane table name</button>
-        <hr />
+      <LifeStages componentName="Header"/>        
       </div>
       );
   }

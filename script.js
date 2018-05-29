@@ -1,10 +1,9 @@
 class App extends React.Component {
-
-
 	constructor(){
 		super();
 		this.state = {
-			headerName: "Score table"
+			headerName: "Score table",
+			countersMount: true
 		};
 	}
 
@@ -14,7 +13,22 @@ class App extends React.Component {
         });
 	}
 
-	render(){
+	mountOnmountCounters(){
+		this.setState({
+			countersMount: !this.state.countersMount
+		});
+	}
+
+	render(){	
+			let divCounters = '';
+			if (this.state.countersMount){
+				divCounters = <div className="counters">
+					<CounterOne counterName = {"Counter one"}/>
+					<CounterOne counterName = {"Counter two"}/>
+					<CounterOne counterName = {"Counter three"}/>
+				</div>
+			}
+
 		return (
 			<div className="container">
 				<h1>{this.state.headerName}</h1>
@@ -22,16 +36,13 @@ class App extends React.Component {
 					headerName = {this.state.headerName}
 					changeName={this.onChangeName.bind(this)}
 				/>
-				<div className="counters">
-					<CounterOne counterName = {"Counter one"}/>
-					<CounterOne counterName = {"Counter two"}/>
-					<CounterOne counterName = {"Counter three"}/>
-				</div>
+				<button className="btn" onClick={this.mountOnmountCounters.bind(this)}>Show / hide counters</button>
+				{divCounters}
+				<LifeStages componentName="App"/>
 			</div>
 		);
 	}
 }
-
 
 var app = <App />;
 ReactDOM.render(app, document.getElementById('app'));
