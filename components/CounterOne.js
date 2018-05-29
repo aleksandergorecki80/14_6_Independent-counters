@@ -57,13 +57,12 @@ class CounterOne extends React.Component {
 
  render() {
   return (
-   <div >
-      <p>
+   <div  className="counter">
+        <p>{this.props.counterName}</p>
         <button className = "btn" onClick = {this.decreaseState.bind(this)}>-</button>
-        <span>{this.props.counterName}</span>
         <span className="badge">{this.state.counterState}</span>
         <button className = "btn" onClick = {this.increaseState.bind(this)}>+</button>
-      </p>
+        <hr />
    </div>
   );
  }

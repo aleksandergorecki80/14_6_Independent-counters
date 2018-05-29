@@ -22,9 +22,11 @@ class App extends React.Component {
 					headerName = {this.state.headerName}
 					changeName={this.onChangeName.bind(this)}
 				/>
-				<CounterOne counterName = {"Counter one"}/>
-				<CounterOne counterName = {"Counter two"}/>
-				<CounterOne counterName = {"Counter three"}/>
+				<div className="counters">
+					<CounterOne counterName = {"Counter one"}/>
+					<CounterOne counterName = {"Counter two"}/>
+					<CounterOne counterName = {"Counter three"}/>
+				</div>
 			</div>
 		);
 	}

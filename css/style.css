@@ -1,6 +1,32 @@
 * {
   box-sizing: border-box;
+//  border: 1px solid red;
 }
  span {
   margin: 20px;
+ }
+
+ p {
+ 	text-align: center;
+ }
+
+ h1 {
+ 	text-transform: uppercase;
+ 	background-color: green;
+ 	color: white;
+ 	padding: 20px;
+ 	border-radius: 15px;
+ }
+
+ input {
+ 	margin-bottom: 20px;
+ }
+
+ .container {
+ 	width: 700px;
+ }
+
+ .counters {
+	display: flex;
+	justify-content: space-between;
  }

@@ -20,10 +20,9 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        
-                <hr />
-                <input type="text"  value={this.state.name} onChange = {this.onHandleChange.bind(this)}/>
-                <button onClick={this.onChangeName.bind(this)}>Chane table name kki</button>
+        <input className="form-control" type="text"  value={this.state.name} onChange = {this.onHandleChange.bind(this)}/>
+        <button className="btn" onClick={this.onChangeName.bind(this)}>Chane table name</button>
+        <hr />
       </div>
       );
   }
