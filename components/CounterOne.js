@@ -2,20 +2,21 @@ class CounterOne extends React.Component {
  constructor() {
   super();
   this.state = {
-   counterState: 0
+   counter: 0
   };
+  this.kki = 'kki';
  }
 
  increaseState() {
-  this.setState({
-   counterState: this.state.counterState + 1
-  });
+  this.setState(prevState => ({
+ counter: prevState.counter + 1
+}));
  }
 
  decreaseState() {
-  this.setState({
-   counterState: this.state.counterState - 1
-  });
+  this.setState(prevState => ({
+ counter: prevState.counter - 1
+}));
  }
 
  render() {
@@ -25,9 +26,9 @@ class CounterOne extends React.Component {
     <button className="btn" onClick={this.decreaseState.bind(this)}>
      -
     </button>
-    <span className="badge">{this.state.counterState}</span>
+    <span className="badge">{this.state.counter}</span>
     <button className="btn" onClick={this.increaseState.bind(this)}>
-     +
+     + {this.kki}
     </button>
     <hr />
     <LifeStages componentName="CounterOne" />
