@@ -15,18 +15,15 @@ class LifeStages extends React.Component {
  }
 
  shouldComponentUpdate(nextProps, nextState) {
-  // działa
   console.log(
    "Should component " + this.props.componentName + " update",
    nextProps,
    nextState
   );
-
   return true;
  }
 
  componentWillUpdate(nextProps, nextState) {
-  // działa
   console.log(
    "Component " + this.props.componentName + " will update ",
    nextState,
@@ -35,7 +32,6 @@ class LifeStages extends React.Component {
  }
 
  componentDidUpdate(prevProps, prevState) {
-  // działa
   console.log(
    "Component " + this.props.componentName + " did update",
    prevProps,

@@ -5,19 +5,16 @@ class CounterOne extends React.Component {
       counter: 0
     };
   }
-
   increaseState() {
     this.setState(prevState => ({
       counter: prevState.counter + 1
     }));
   }
-
   decreaseState() {
     this.setState(prevState => ({
       counter: prevState.counter - 1
     }));
   }
-
   render() {
     return (
       <div className="counter">

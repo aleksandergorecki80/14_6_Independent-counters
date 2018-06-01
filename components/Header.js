@@ -9,7 +9,6 @@ class Header extends React.Component {
  onChangeName() {
   this.props.changeName(this.state.name);
  }
-
  onHandleChange(event) {
   this.setState({
    name: event.target.value
